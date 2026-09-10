@@ -39,9 +39,10 @@ const add = (test1,test2) => {
 }
 console.log(add(5,8));
 //問13
-const first = "齊藤";
-const second = first.concat("元弥");
-console.log(second);
+const createname = (first,second) => {
+  return first + second;
+}
+console.log(createname("齊藤","元弥"));
 //問14
 const myButton = document.getElementById("myButton");
 //問15
