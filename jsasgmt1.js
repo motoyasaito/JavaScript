@@ -1,7 +1,7 @@
 //問1
-const no1 ="hoge";
+const no1 = "hoge";
 //問2
-const no2 =69;
+const no2 = 69;
 //問3
 const no3 = false;
 //問4
@@ -9,7 +9,7 @@ let no4;
 //問5
 const no5 = null;
 //問6
-const no6 =["田中","佐藤","久保田","鈴木","河本"];
+const no6 = ["田中","佐藤","久保田","鈴木","河本"];
 //問7
 const no7 = {
   id: 1,
@@ -39,8 +39,9 @@ const add = (test1,test2) => {
 }
 console.log(add(5,8));
 //問13
-const no13 = "齊藤" + "元弥"
-console.log(no13);
+const first = "齊藤";
+const second = first.concat("元弥");
+console.log(second);
 //問14
 const myButton = document.getElementById("myButton");
 //問15
