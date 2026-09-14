@@ -1,15 +1,14 @@
 //問1
-const no1 = 100;
-const no2 = 80;
-const no3 = 75;
-const no4 = 70;
-const no5 = 80;
-const result1 = no1 + no2 + no3 + no4 + no5;
+const no1 = {"国語": 100, "数学": 80, "英語": 75, "理科": 70, "社会": 80};
+let result1 = 0;
+for (let n1 in no1) {
+  result1 += no1[n1];
+}
 console.log(result1);
 //問2
 const no6 = 100000;
 const no7 = 80000;
-const result2 = no6 + no7;
+const result2 = no6 - no7;
 console.log(result2);
 //問3
 const no8 = 32;
@@ -52,9 +51,9 @@ const button = document.getElementById("mybutton");
 button.addEventListener("click", () => {
   if (rnum >= 100) {
     alert(rnum + "点。" + "満点！！");
-  } else if (rnum > 80 && rnum < 99) {
+  } else if (rnum >= 80 && rnum <= 99) {
     alert(rnum + "点。" + "合格です");
-  } else if (rnum > 30 && rnum < 79) {
+  } else if (rnum >= 30 && rnum <= 79) {
     alert(rnum + "点。" + "赤点です");
   } else {
     alert(rnum + "点。" + "不合格です");
@@ -62,7 +61,7 @@ button.addEventListener("click", () => {
 });
 //問10
 const ip = document.getElementById("text");
-ip.addEventListener("input", (event) => {
+ip.addEventListener("blur", (event) => {
   const jp = event.target.value;
   switch (jp) {
     case "saitama":
@@ -73,6 +72,7 @@ ip.addEventListener("input", (event) => {
       break;
     case "kanagawa":
       console.log("神奈川");
+      break;
     default:
       console.log("未確認");
   }
@@ -119,9 +119,10 @@ console.log(numbera);
 //問18
 let sum2 = 0;
 for (let k = 1; k <= 100; k++) {
-  if (k % 2 !== 0) {
-    sum2 += k;
+  if (k % 2 === 0) {
+    continue;
   };
+  sum2 += k;
 };
 console.log(sum2);
 //問19
@@ -172,10 +173,7 @@ const ev = [
     { id: 3, hasSubmitted: false },
     { id: 4, hasSubmitted: true },
   ];
-const result5 = ev.every((value) => {
-  return value = "hasSubmitted";
-});
-console.log(result5);
+console.log(ev.every(word => word.hasSubmitted === true));
 //問24
 const fi = [
     { id: 2, hasSubmitted: true },
