@@ -20,11 +20,11 @@ const numberRegex = /^[0-9]+$/;
 const emailRegex = /^[\w.\-]+@[\w\-]+\.[\w.\-]+$/;
 const phoneRegex = /^\d{11}$/;
 
-const validiconCheck = (inputID,ErrorID,regex,errorMessage) => {
-  const getinputID = document.getElementById(inputID);
-  const getErrorID = document.getElementById(ErrorID);
+const validiconCheck = (inputID,errorID,regex,errorMessage) => {
+  const getInputID = document.getElementById(inputID);
+  const getErrorID = document.getElementById(errorID);
   getErrorID.textContent = "";
-  const getValue = getinputID.value.trim();
+  const getValue = getInputID.value.trim();
   if (getValue === "") {
     getErrorID.textContent = errorMessage;
     } else if (!regex.test(getValue)) {
