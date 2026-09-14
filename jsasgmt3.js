@@ -10,61 +10,38 @@ const jsonstringfly1 = JSON.stringify(json2);
 console.log(jsonstringfly1);
 //フォームバリデーション課題
 const form = document.getElementById("myForm");
-const submitbtn = document.getElementById("submitbtn");
+const submitBtn = document.getElementById("submitbtn");
 form.addEventListener("submit",(Event) => {
   Event.prevenrDefault();
 });
-//名前
-const nameinput = document.getElementById("nameInput");
-const nameerror = document.getElementById("nameError");
-const fullwidth = /^[^ -~｡-ﾟ]+$/;
-submitbtn.addEventListener("click", () => {
-  nameerror.textContent="";
-  const namevalue = nameinput.value.trim();
-  if (namevalue === "" ) {
-    nameerror.textContent = "正しい名前を入力してください";
-  } else if (!fullwidth.test(namevalue)) {
-    nameerror.textContent = "正しい名前を入力してください";
-  }
-});
-//年齢
-const ageInput = document.getElementById("ageInput");
-const ageError = document.getElementById("ageError");
-const number = /^[0-9]+$/;
-submitbtn.addEventListener("click", () => {
-  ageError.textContent = "";
-  const agevalue = ageInput.value.trim();
-  if (agevalue === "") {
-    ageError.textContent = "正しい年齢を入力してください";
-  } else if (!number.test(agevalue)) {
-    ageError.textContent = "正しい年齢を入力してください";
-  }
-});
-//e-mail
-const emailInput = document.getElementById("emailInput");
-const emailError = document.getElementById("emailError");
-const email = /^[\w.\-]+@[\w\-]+\.[\w.\-]+$/;
-submitbtn.addEventListener("click", () => {
-  emailError.textContent = "";
-  const emailvalue = emailInput.value.trim();
-  if (emailvalue === "") {
-    emailError.textContent = "正しいメールアドレスを入力してください";
-  } else if (!email.test(emailvalue)) {
-    emailError.textContent = "正しいメールアドレスを入力してください";
-  }
-});
-//電話番号
-const phoneInput = document.getElementById("phoneInput");
-const phoneError = document.getElementById("phoneError");
-const phone = /^\d{11}$/;
-submitbtn.addEventListener("click", () => {
-  phoneError.textContent = ""
-  const phonevalue = phoneInput.value.trim();
-  if (phonevalue === "") {
-    phoneError.textContent = "正しい電話番号を入力してください";
-  } else if (!phone.test(phonevalue)) {
-    phoneError.textContent = "正しい電話番号を入力してください"
-  }
-});
 
+const nameRegex = /^[^ -~｡-ﾟ]+$/;
+const numberRegex = /^[0-9]+$/;
+const emailRegex = /^[\w.\-]+@[\w\-]+\.[\w.\-]+$/;
+const phoneRegex = /^\d{11}$/;
+
+const validiconCheck = (inputID,ErrorID,regex,errorMessage) => {
+  const getinputID = document.getElementById(inputID);
+  const getErrorID = document.getElementById(ErrorID);
+  getErrorID.textContent = "";
+  const getValue = getinputID.value.trim();
+  if (getValue === "") {
+    getErrorID.textContent = errorMessage;
+    } else if (!regex.test(getValue)) {
+    getErrorID.textContent = errorMessage;
+  }
+};
+const errorContent = (Content1) => {
+  return `正しい${Content1}を入力してください`;
+  // const getContent1 = "正しい".document.getElementById(Content1);
+  // const getContent2 = "を入力してください".document.getElementById(Cintent2);
+};
+
+
+submitBtn.addEventListener("click", () => {
+  validiconCheck("nameInput","nameError",nameRegex,errorContent("名前"));
+  validiconCheck("ageInput","ageError",numberRegex,errorContent("年齢"));
+  validiconCheck("emailInput","emailError",emailRegex,errorContent("メールアドレス"));
+  validiconCheck("phoneInput","phoneError",phoneRegex,errorContent("電話番号"));
+});
 
