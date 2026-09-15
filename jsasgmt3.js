@@ -33,8 +33,6 @@ const validiconCheck = (inputID,errorID,regex,errorMessage) => {
 };
 const errorContent = (Content1) => {
   return `正しい${Content1}を入力してください`;
-  // const getContent1 = "正しい".document.getElementById(Content1);
-  // const getContent2 = "を入力してください".document.getElementById(Cintent2);
 };
 
 
